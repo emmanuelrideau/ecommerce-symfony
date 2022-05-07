@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}
+	Création d'une catégorie
+{% endblock %}
+
+{% block body %}
+	<h1>Nouvelle catégorie</h1>
+
+	{{ form_start(formView) }}
+
+	{{ form_errors(formView) }}
+
+	<div class="row">
+		<div class="col">
+			{{ form_row(formView.name )}}
+		</div>
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">
+		<i class="fas fa-save"></i>
+		Créer la catégorie
+	</button>
+	{{ form_end(formView) }}
+
+
+{% endblock %}
