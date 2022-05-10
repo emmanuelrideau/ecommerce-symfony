@@ -15,7 +15,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CategoryController extends AbstractController
 {
+    protected $CategoryRepository;
 
+    public function __construct(CategoryRepository $categoryRepository)
+    {
+        $this->CategoryRepository = $categoryRepository;
+    }
 
     /**
      * @Route("/admin/category/{id}/edit", name="category_edit")
@@ -28,7 +33,7 @@ class CategoryController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $category->setSlug(strtolower($slugger->slug($category->getName())));
 
             $em->flush();
@@ -53,7 +58,7 @@ class CategoryController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $category->setSlug(strtolower($slugger->slug($category->getName())));
 
             $em->persist($category);

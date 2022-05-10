@@ -28,7 +28,6 @@ class Product
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Le prix du produit est obligatoire !")
-     * @Assert\Length(min=3, max=255, minMessage="Le nom du produit doit faire au moins 3 caractères")
      */
     private $price;
 
