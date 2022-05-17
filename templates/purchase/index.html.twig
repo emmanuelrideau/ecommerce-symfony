@@ -23,7 +23,7 @@
 					<td>{{ p.address }}
 						<br>{{ p.postalCode }},
 						{{ p.city }}</td>
-					<td>{{ p.purchasedAt | date('d/d/Y H:i')}}</td>
+					<td>{{ p.purchasedAt | date('d/m/Y H:i')}}</td>
 					<td>
 						<ul>
 							{% for item in p.purchaseItems %}
